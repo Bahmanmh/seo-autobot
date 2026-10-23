@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5">
+
+    <!-- WebView occupying the main screen background -->
+    <WebView
+        android:id="@+id/webView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Real-time Status Bar at the top -->
+    <LinearLayout
+        android:id="@+id/layoutStatusBar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="#DD212121"
+        android:orientation="vertical"
+        android:padding="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tvStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Status: Idle | IP: Checking... | Loop: 0/0"
+            android:textColor="#FFFFFF"
+            android:textSize="13sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- Collapsible Settings Panel Container -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardSettings"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        app:cardBackgroundColor="#EEFFFFFF"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="6dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layoutStatusBar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="12dp">
+
+            <!-- Toggle Settings Header Bar -->
+            <LinearLayout
+                android:id="@+id/layoutSettingsToggle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Bot Configuration &amp; Controls"
+                    android:textColor="#212121"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/btnToggleSettings"
+                    android:layout_width="wrap_content"
+                    android:layout_height="36dp"
+                    android:text="Collapse"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <!-- Collapsible Content Group -->
+            <LinearLayout
+                android:id="@+id/layoutSettingsContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/etKeyword"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:hint="Search Keyword (e.g., سئو سایت)"
+                    android:inputType="text"
+                    android:textSize="13sp" />
+
+                <EditText
+                    android:id="@+id/etTargetDomain"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:hint="Target Domain (e.g., example.com)"
+                    android:inputType="textUri"
+                    android:textSize="13sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/etChainCount"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="1"
+                        android:hint="Chain Links (e.g., 2)"
+                        android:inputType="number"
+                        android:textSize="13sp" />
+
+                    <EditText
+                        android:id="@+id/etDwellTime"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="1"
+                        android:hint="Dwell Secs (e.g., 15)"
+                        android:inputType="number"
+                        android:textSize="13sp" />
+
+                    <EditText
+                        android:id="@+id/etLoopCount"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="1"
+                        android:hint="Loops (e.g., 5)"
+                        android:inputType="number"
+                        android:textSize="13sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btnEnableAccessibility"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_marginEnd="4dp"
+                        android:layout_weight="1"
+                        android:text="Enable Accessibility"
+                        android:textSize="11sp" />
+
+                    <Button
+                        android:id="@+id/btnCalibrateTile"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="4dp"
+                        android:layout_weight="1"
+                        android:text="Calibrate Tile"
+                        android:textSize="11sp" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btnStartStop"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:layout_marginTop="8dp"
+                    android:backgroundTint="#4CAF50"
+                    android:text="Start Bot"
+                    android:textColor="#FFFFFF"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Floating Calibration Crosshair View Overlay -->
+    <View
+        android:id="@+id/viewCalibrationOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#99000000"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/layoutCalibrationBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#CC212121"
+        android:elevation="10dp"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Drag &amp; Tap Airplane Tile Position"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Open Quick Settings manually, place crosshair on Airplane tile, then click Save."
+            android:textColor="#DDDDDD"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/btnSaveCalibration"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="12dp"
+            android:backgroundTint="#2196F3"
+            android:text="Save Position"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
