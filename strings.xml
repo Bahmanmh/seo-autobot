@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">SEO Autobot</string>
+    <string name="accessibility_service_description">SEO Autobot Accessibility Service for automated Quick Settings interaction, Airplane Mode toggle, and calibration.</string>
+</resources>
